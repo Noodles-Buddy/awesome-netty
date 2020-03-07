@@ -5,7 +5,7 @@ Please notice that all code is scattered under different branches.
 
 ## Content
 * dev_server_start
-* dev_client_Start
+* dev_client_start
 
 ## Question
 * 1.
