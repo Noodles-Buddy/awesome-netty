@@ -6,7 +6,7 @@ Please notice that all code is scattered under different branches.
 ## Content
 * dev_server_start 启动server端
 * dev_client_start 启动client端
-* client、server交互，传输数据 
+* dev_trans_msg client、server交互，传输数据 
 
 ## Question
  * 1.Bootstrap && ServerBootStrap 区别
