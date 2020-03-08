@@ -1,4 +1,4 @@
-package awaresome.netty;
+package awaresome.netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -16,7 +16,7 @@ import io.netty.util.AttributeKey;
  */
 public class NettyServer {
 
-    private static final int BEGIN_PORT = 8000;
+    private static final int BEGIN_PORT = 8001;
 
     /**
      * 引导类
@@ -31,10 +31,12 @@ public class NettyServer {
         serverBootstrap
                 .group(boosGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 1024)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
+                .childOption(ChannelOption.TCP_NODELAY, true)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     protected void initChannel(NioSocketChannel ch) {
-                        System.out.println("netty server started!");
-                        ch.close();
+                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
         bind(serverBootstrap, BEGIN_PORT);
