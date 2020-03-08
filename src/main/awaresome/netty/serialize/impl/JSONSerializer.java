@@ -1,0 +1,30 @@
+package awaresome.netty.serialize.impl;
+
+import awaresome.netty.serialize.SerializerAlogrithm;
+import com.alibaba.fastjson.JSON;
+import awaresome.netty.serialize.Serializer;
+
+
+/**
+ * 描述: 协议 序列化方式
+ *
+ * @Author : zhenhua.zhang
+ * @Date: 2020-03-08 14:54
+ */
+public class JSONSerializer implements Serializer {
+
+    @Override
+    public byte getSerializerAlogrithm() {
+        return SerializerAlogrithm.JSON;
+    }
+
+    @Override
+    public byte[] serialize(Object object) {
+        return JSON.toJSONBytes(object);
+    }
+
+    @Override
+    public <T> T deserialize(Class<T> clazz, byte[] bytes) {
+        return JSON.parseObject(bytes, clazz);
+    }
+}
