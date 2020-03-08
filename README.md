@@ -7,6 +7,7 @@ Please notice that all code is scattered under different branches.
 * dev_server_start 启动server端
 * dev_client_start 启动client端
 * dev_trans_msg client、server交互，传输数据 
+* dev_byte_buf ByteBuff 使用
 
 ## Question
  * 1.Bootstrap && ServerBootStrap 区别
