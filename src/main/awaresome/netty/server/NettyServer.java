@@ -1,5 +1,6 @@
-package awaresome.netty;
+package awaresome.netty.server;
 
+import awaresome.netty.server.FirstServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -9,7 +10,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.AttributeKey;
 
 /**
- * 描述: 精简版 Server启动类
+ * 描述: Client、Server 双方通信
  *
  * @Author : zhenhua.zhang
  * @Date: 2020-03-07 16:12
@@ -33,8 +34,7 @@ public class NettyServer {
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     protected void initChannel(NioSocketChannel ch) {
-                        System.out.println("netty server started!");
-                        ch.close();
+                        ch.pipeline().addLast(new FirstServerHandler());
                     }
                 });
         bind(serverBootstrap, BEGIN_PORT);
