@@ -39,6 +39,7 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter {
      * @return
      */
     private ByteBuf getByteBuf(ChannelHandlerContext ctx){
+        //ctx.alloc()获取ByteBuf的内存管理器，作用是分配一个 ByteBuf
         ByteBuf buffer = ctx.alloc().buffer();
         byte[] bytes = "client端您好，这是server端的第一条回复消息！".getBytes(Charset.forName("utf-8"));
         buffer.writeBytes(bytes);
