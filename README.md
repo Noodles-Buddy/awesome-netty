@@ -10,6 +10,7 @@ Please notice that all code is scattered under different branches.
 * dev_byte_buf ByteBuff 使用
 * dev_decode_encode 自定义协议编解码
 * dev_client_login 客户端登陆
+* dev_console_send 客户端通过控制台发送消息
 
 ## Question
  * 1.Bootstrap && ServerBootStrap 区别
